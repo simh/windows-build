@@ -22,7 +22,7 @@ For Example, the directory structure should look like:
     .../simh/simhv38-2-rc1/BIN/Nt/Win32-Release/vax.exe
     .../simh/windows-build/pthreads/pthread.h
     .../simh/windows-build/winpcap/WpdPack/Include/pcap.h
-    .../simh/windows-build/libSDL/SDL-1.2.15/include/SDL.h
+    .../simh/windows-build/libSDL/SDL-2.0.0/include/SDL.h
 
 The ../simh/windows-build/winpcap directory contains Version 4.1.2 of 
 the winpcap developer pack from:
@@ -34,13 +34,13 @@ next release of the pthreads-win32 Posix Threads package for the windows
 platform.
 
 The ../simh/windows-build/libSDL directory contains the source to version
-1.2.15 of libSDL.  This source has been modified from the code in the zip
-file: http://www.libsdl.org/release/SDL-1.2.15.zip.  The modifications
+2.0.0 of libSDL2.  This source has been modified from the code in the zip
+file: http://www.libsdl.org/release/SDL2-2.0.0.zip.  The modifications
 produce SDL libraries which can be statically linked into simh simulator
 binaries when building with the Microsoft Visual Studio compilers.  These 
 binaries will then run without external DLL dependencies.  The MinGW link
 libraries are also provided.  These have been extracted from:
-http://www.libsdl.org/release/SDL-devel-1.2.15-mingw32.tar.gz along with
-the SDL.dll file which is required when running a simulator with video 
+http://www.libsdl.org/release/SDL2-devel-2.0.0-mingw.tar.gz along with
+the SDL2.dll file which is required when running a simulator with video 
 support if it is compiled with the MinGW gcc compiler.
 

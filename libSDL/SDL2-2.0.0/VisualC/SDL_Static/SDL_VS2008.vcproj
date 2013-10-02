@@ -57,6 +57,7 @@
 				ExceptionHandling="0"
 				RuntimeLibrary="1"
 				BufferSecurityCheck="false"
+				ProgramDataBaseFileName="$(OutDir)\SDL2-StaticD.pdb"
 				WarningLevel="3"
 				SuppressStartupBanner="true"
 				Detect64BitPortabilityProblems="false"
