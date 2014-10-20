@@ -3,10 +3,11 @@
 This repository contains the external dependencies needed to build full
 asynchronous, networking and video support for the simh simulators on Windows.
 
-It contains three separate dependent packages:
+It contains four separate packages which the windows simh build depends on:
     The WinPcap developer Pack
     Posix threads for Windows
     Simple DirectMedia Layer
+    Perl Compatible Regular Expressions
 
 The Visual Studio Projects in the simh source tree presume that 
 The directory containing this file should be located parallel to the
@@ -23,6 +24,7 @@ For Example, the directory structure should look like:
     .../simh/windows-build/pthreads/pthread.h
     .../simh/windows-build/winpcap/WpdPack/Include/pcap.h
     .../simh/windows-build/libSDL/SDL-2.0.0/include/SDL.h
+    .../simh/windows-build/PCRE/include/pcreposix.h
 
 The ../simh/windows-build/winpcap directory contains Version 4.1.2 of 
 the winpcap developer pack from:
@@ -43,4 +45,7 @@ libraries are also provided.  These have been extracted from:
 http://www.libsdl.org/release/SDL2-devel-2.0.0-mingw.tar.gz along with
 the SDL2.dll file which is required when running a simulator with video 
 support if it is compiled with the MinGW gcc compiler.
+
+The ../simh/windows-build/PCRE directory contains the source to PCRE version
+8.36 the Perl Compatible Regular Expression library.
 
