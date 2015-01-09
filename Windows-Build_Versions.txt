@@ -5,7 +5,8 @@
 :: building simh simulators on Windows with Visual Studio 2008-2013 
 :: and MinGW.
 ::
-PACKAGE LIBSDL          2.0.0
+PACKAGE LIBSDL          2.0.3
 PACKAGE WINPCAP         4.1.2
 PACKAGE PTHREADS        2.9.0
 PACKAGE PCRE            8.36
+PACKAGE LIBSDL_TTF      2.0.12
