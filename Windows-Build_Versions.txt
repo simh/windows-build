@@ -5,6 +5,19 @@
 :: building simh simulators on Windows with Visual Studio 2008-2013 
 :: and MinGW.
 ::
+:: For Example, the directory structure should look something like:
+:: 
+::     .../simh/simh-master/PDP11/pdp11_cpu.c
+::     .../simh/simh-master/VAX/vax_cpu.c
+::     .../simh/simh-master/scp.c
+::     .../simh/simh-master/makefile
+::     .../simh/simh-master/Visual Studio Projects/simh.sln
+::     .../simh/simh-master/Visual Studio Projects/VAX.vcproj
+::     .../simh/windows-build/pthreads/pthread.h
+::     .../simh/windows-build/winpcap/WpdPack/Include/pcap.h
+::     .../simh/windows-build/libSDL/SDL2-2.0.3/include/SDL.h
+::        ...
+::
 PACKAGE LIBSDL          2.0.3
 PACKAGE WINPCAP         4.1.2
 PACKAGE PTHREADS        2.9.0
