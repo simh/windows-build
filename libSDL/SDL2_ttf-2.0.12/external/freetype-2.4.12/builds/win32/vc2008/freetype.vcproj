@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="9,00"
+	Version="9.00"
 	Name="freetype"
 	ProjectGUID="{78B079BD-9FC7-4B9E-B4A6-96DA0F00248B}"
 	TargetFrameworkVersion="131072"
@@ -421,7 +421,7 @@
 				PrecompiledHeaderFile=".\..\..\..\objs\debug_mt/freetype.pch"
 				AssemblerListingLocation=".\..\..\..\objs\debug_mt/"
 				ObjectFile=".\..\..\..\objs\debug_mt/"
-				ProgramDataBaseFileName=".\..\..\..\objs\debug_mt/"
+				ProgramDataBaseFileName=".\..\..\..\objs\win32\vc2008/"
 				WarningLevel="4"
 				DebugInformationFormat="3"
 				CompileAs="0"
@@ -1163,6 +1163,26 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath="..\ftvprintf.c"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						PreprocessorDefinitions="NEED_VSPRINTF"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug Multithreaded|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						PreprocessorDefinitions="NEED_VSPRINTF"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath="..\..\..\src\smooth\smooth.c"
 				>
 				<FileConfiguration
@@ -1237,6 +1257,14 @@
 					>
 				</File>
 				<File
+					RelativePath="..\..\..\src\base\ftgxval.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\..\src\base\ftlcdfil.c"
+					>
+				</File>
+				<File
 					RelativePath="..\..\..\src\base\ftmm.c"
 					>
 					<FileConfiguration
@@ -1304,6 +1332,14 @@
 					</FileConfiguration>
 				</File>
 				<File
+					RelativePath="..\..\..\src\base\ftotval.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\..\src\base\ftpatent.c"
+					>
+				</File>
+				<File
 					RelativePath="..\..\..\src\base\ftpfr.c"
 					>
 				</File>
@@ -1321,22 +1357,6 @@
 				</File>
 				<File
 					RelativePath="..\..\..\src\base\ftxf86.c"
-					>
-				</File>
-				<File
-					RelativePath="..\..\..\src\base\ftlcdfil.c"
-					>
-				</File>
-				<File
-					RelativePath="..\..\..\src\base\ftgxval.c"
-					>
-				</File>
-				<File
-					RelativePath="..\..\..\src\base\ftotval.c"
-					>
-				</File>
-				<File
-					RelativePath="..\..\..\src\base\ftpatent.c"
 					>
 				</File>
 				<File

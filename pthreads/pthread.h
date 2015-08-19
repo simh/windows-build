@@ -313,6 +313,12 @@ enum {
 #endif
 #endif
 
+#if  defined(_MSC_VER)      /* Visual Studio/Visual C++ */
+#if _MSC_VER >= 1900        /* Visual Studio Community (2015) */
+#define HAVE_STRUCT_TIMESPEC 1
+#define _TIMESPEC_DEFINED 1
+#endif /* _MSC_VER >= 1900 */
+#endif /* defined(_MSC_VER) */
 #if !defined(HAVE_STRUCT_TIMESPEC)
 #define HAVE_STRUCT_TIMESPEC
 #if !defined(_TIMESPEC_DEFINED)

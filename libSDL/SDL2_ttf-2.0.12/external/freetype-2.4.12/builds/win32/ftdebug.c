@@ -53,6 +53,7 @@
 
 #include <windows.h>
 
+extern int ft_vsprintf (char *buf, const char *fmt, va_list args);
 
   /* documentation is in ftdebug.h */
 
@@ -63,11 +64,9 @@
     static char  buf[8192];
     va_list      ap;
 
-
     va_start( ap, fmt );
-    vprintf( fmt, ap );
-    /* send the string to the debugger as well */
-    vsprintf( buf, fmt, ap );
+    /* send the string to the debugger */
+    ft_vsprintf( buf, fmt, ap );
     OutputDebugStringA( buf );
     va_end( ap );
   }
@@ -84,7 +83,7 @@
 
 
     va_start( ap, fmt );
-    vsprintf( buf, fmt, ap );
+    ft_vsprintf( buf, fmt, ap );
     OutputDebugStringA( buf );
     va_end( ap );
 
