@@ -334,11 +334,14 @@ localexit:
     /* *INDENT-ON* */
 }
 
+/* Static Compiles on Visual Studio 2008 also define _fto2_sse.  Provide a way not to do it here */
+#ifndef HAVE_FTOL2_SSE
 void
 _ftol2_sse()
 {
     _ftol();
 }
+#endif /* HAVE_FTOL2_SSE */
 
 /* 64-bit math operators for 32-bit systems */
 void
