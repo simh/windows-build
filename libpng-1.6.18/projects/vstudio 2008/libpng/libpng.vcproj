@@ -47,6 +47,7 @@
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS"
 				RuntimeLibrary="0"
 				EnableFunctionLevelLinking="true"
+				ProgramDataBaseFileName="$(OutDir)\$(ProjectName)16.pdb"
 				WarningLevel="3"
 				DebugInformationFormat="3"
 			/>
@@ -110,6 +111,7 @@
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
+				ProgramDataBaseFileName="$(OutDir)\$(ProjectName)16.pdb"
 				WarningLevel="3"
 				DebugInformationFormat="4"
 			/>
