@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Release|Win32">
       <Configuration>Release</Configuration>
@@ -16,6 +16,7 @@
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\zlib.props" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -41,13 +42,15 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <CustomBuildStep>
-      <Command>copy ..\..\..\scripts\pnglibconf.h.prebuilt ..\..\..\pnglibconf.h</Command>
+      <Command>copy ..\..\..\scripts\pnglibconf.h.prebuilt ..\..\..\pnglibconf.h
+if not exist "..\Release Library" mkdir "..\Release Library"
+echo %VisualStudioVersion% &gt; "..\Release Library\VisualC.version"</Command>
     </CustomBuildStep>
     <CustomBuildStep>
       <Message>Generating pnglibconf.h</Message>
     </CustomBuildStep>
     <CustomBuildStep>
-      <Outputs>..\..\..\pnglibconf.h</Outputs>
+      <Outputs>..\..\..\pnglibconf.h;..\..\Release Library\VisualC.version</Outputs>
     </CustomBuildStep>
     <CustomBuildStep>
       <Inputs>..\..\..\scripts\pnglibconf.h.prebuilt</Inputs>

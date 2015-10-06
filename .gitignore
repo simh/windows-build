@@ -12,6 +12,8 @@
 *_p.c
 *.ncb
 *.suo
+*.sdf
+*.opensdf
 *.tlb
 *.tlh
 *.bak
