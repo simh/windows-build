@@ -23,4 +23,10 @@ PACKAGE LIBSDL          2.0.3
 PACKAGE WINPCAP         4.1.2
 PACKAGE PTHREADS        2.9.0
 PACKAGE PCRE            8.36
+PACKAGE LIBPNG          1.6.18
 PACKAGE LIBSDL_TTF      2.0.12
+::
+:: Local or ultimately upstream included fixes needed by simh
+::
+PACKAGE_FIX LIBSDL_FTOL2_SSE
+PACKAGE_FIX LIBSDL_ALLMUL
