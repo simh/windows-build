@@ -896,6 +896,7 @@ _allshr()
         ret
 MORE32:
         mov         eax,edx
+        sar         edx,1Fh
         and         cl,1Fh
         sar         eax,cl
         ret
