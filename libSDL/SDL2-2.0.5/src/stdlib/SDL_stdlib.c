@@ -369,11 +369,14 @@ localexit:
     /* *INDENT-ON* */
 }
 
+/* Static Compiles on Visual Studio 2008 also define _fto2_sse.  Provide a way not to do it here */
+#if (_MSC_VER < 1500)
 void
 _ftol2_sse()
 {
     _ftol();
 }
+#endif /* _MSC_VER < 1500 */
 
 /* 64-bit math operators for 32-bit systems */
 void
@@ -914,8 +917,8 @@ _allshr()
 {
     /* *INDENT-OFF* */
     __asm {
-        cmp         cl,40h
-        jae         RETZERO
+        cmp         cl,3Fh
+        jae         RETSIGN
         cmp         cl,20h
         jae         MORE32
         shrd        eax,edx,cl
@@ -923,13 +926,13 @@ _allshr()
         ret
 MORE32:
         mov         eax,edx
-        xor         edx,edx
+        sar         edx,1Fh
         and         cl,1Fh
         sar         eax,cl
         ret
-RETZERO:
-        xor         eax,eax
-        xor         edx,edx
+RETSIGN:
+        sar         edx,1Fh
+        mov         eax,edx
         ret
     }
     /* *INDENT-ON* */

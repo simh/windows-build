@@ -15,11 +15,11 @@
 ::     .../simh/simh-master/Visual Studio Projects/VAX.vcproj
 ::     .../simh/windows-build/pthreads/pthread.h
 ::     .../simh/windows-build/winpcap/WpdPack/Include/pcap.h
-::     .../simh/windows-build/libSDL/SDL2-2.0.3/include/SDL.h
+::     .../simh/windows-build/libSDL/SDL2-2.0.5/include/SDL.h
 ::        ...
 ::
-WINDOWS-BUILD           20150819
-PACKAGE LIBSDL          2.0.3
+WINDOWS-BUILD           20161021
+PACKAGE LIBSDL          2.0.5
 PACKAGE WINPCAP         4.1.2
 PACKAGE PTHREADS        2.9.0
 PACKAGE PCRE            8.36
