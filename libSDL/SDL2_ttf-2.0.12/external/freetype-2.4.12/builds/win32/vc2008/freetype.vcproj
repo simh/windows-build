@@ -421,7 +421,7 @@
 				PrecompiledHeaderFile=".\..\..\..\objs\debug_mt/freetype.pch"
 				AssemblerListingLocation=".\..\..\..\objs\debug_mt/"
 				ObjectFile=".\..\..\..\objs\debug_mt/"
-				ProgramDataBaseFileName=".\..\..\..\objs\win32\vc2008/"
+				ProgramDataBaseFileName=".\..\..\..\objs\win32\vc2008\freetype2412MT_D.pdb"
 				WarningLevel="4"
 				DebugInformationFormat="3"
 				CompileAs="0"
