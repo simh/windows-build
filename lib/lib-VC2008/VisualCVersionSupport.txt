@@ -1,0 +1,6 @@
+# This file lists the Microsoft Visual C++ compatible libraries
+# Leading Space, Visual C++ Version, Visual C++ Version Name
+_VC_VER=9 Visual Studio 2008
+_VC_VER=10 Visual Studio 2010
+_VC_VER=11 Visual Studio 2012
+_VC_VER=12 Visual Studio 2013

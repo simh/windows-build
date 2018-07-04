@@ -13,6 +13,8 @@
 *.ncb
 *.suo
 *.sdf
+*.VC.opendb
+.vs/
 *.opensdf
 *.tlb
 *.tlh
@@ -20,6 +22,7 @@
 *.cache
 *.ilk
 *.log
+lib/*
 [Bb]in
 [Dd]ebug*/
 [Rr]elease*/
