@@ -125,6 +125,8 @@ main()
           seqmap[(int)pthread_getunique_np(pthread_self())] = 1;
         }
       assert(pthread_create(&t[i], &attr, func, NULL) == 0);
+      if (0 == (i % 200))
+      	Sleep(100);
     }
 
   while (NUMTHREADS > InterlockedExchangeAdd((LPLONG)&done, 0L))
