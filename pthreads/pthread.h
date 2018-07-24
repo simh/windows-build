@@ -1194,6 +1194,15 @@ PTW32_DLLPORT int PTW32_CDECL pthread_win32_thread_attach_np(void);
 PTW32_DLLPORT int PTW32_CDECL pthread_win32_thread_detach_np(void);
 
 /*
+ * Returns the first parameter "abstime" modified to represent the current system time.
+ * If "relative" is not NULL it represents an interval to add to "abstime".
+ */
+
+PTW32_DLLPORT struct timespec * PTW32_CDECL pthread_win32_getabstime_np(
+						      struct timespec * abstime,
+						      const struct timespec * relative);
+
+/*
  * Features that are auto-detected at load/run time.
  */
 PTW32_DLLPORT int PTW32_CDECL pthread_win32_test_features_np(int);

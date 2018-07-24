@@ -40,6 +40,9 @@
 #include <sys/timeb.h>
 #endif
 
+static const int64_t NANOSEC_PER_SEC = 1000000000;
+static const int64_t NANOSEC_PER_MILLISEC = 1000000;
+static const int64_t MILLISEC_PER_SEC = 1000;
 
 #if defined(PTW32_BUILD_INLINED)
 INLINE 
@@ -129,4 +132,54 @@ ptw32_relmillisecs (const struct timespec * abstime)
     }
 
   return milliseconds;
+}
+
+/*
+ * Return the first parameter "abstime" modified to represent the current system time.
+ * If "relative" is not NULL it represents an interval to add to "abstime".
+ */
+
+struct timespec *
+pthread_win32_getabstime_np (struct timespec * abstime, const struct timespec * relative)
+{
+  int64_t sec;
+  int64_t nsec;
+
+#if defined(WINCE)
+  SYSTEMTIME st;
+#endif /* WINCE */
+  FILETIME ft;
+  struct timespec currSysTime;
+
+  /* get current system time */
+
+# if defined(WINCE)
+
+  SYSTEMTIME st;
+  GetSystemTime(&st);
+  SystemTimeToFileTime(&st, &ft);
+# else
+  GetSystemTimeAsFileTime(&ft);
+# endif
+
+  ptw32_filetime_to_timespec(&ft, &currSysTime);
+
+  sec = currSysTime.tv_sec;
+  nsec = currSysTime.tv_nsec;
+
+  if (NULL != relative)
+    {
+      nsec += relative->tv_nsec;
+      while (nsec >= NANOSEC_PER_SEC)
+        {
+          sec++;
+          nsec -= NANOSEC_PER_SEC;
+        }
+      sec += relative->tv_sec;
+    }
+
+  abstime->tv_sec = (time_t) sec;
+  abstime->tv_nsec = (long) nsec;
+
+  return abstime;
 }

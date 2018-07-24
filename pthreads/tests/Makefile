@@ -47,7 +47,7 @@ CPHDR	= pthread.h semaphore.h sched.h
 
 OPTIM	= /O2 /Ob0
 
-XXLIBS	= ws2_32.lib
+XXLIBS	= ws2_32.lib winmm.lib 
 
 # C++ Exceptions
 VCEFLAGS	= /EHsc /TP /DPtW32NoCatchWarn /D__CLEANUP_CXX
@@ -108,7 +108,7 @@ REGULAR_PASSES = loadfree.pass \
 	  tsd1.pass  tsd2.pass  delay1.pass  delay2.pass  eyal1.pass  \
 	  condvar3.pass  condvar3_1.pass  condvar3_2.pass  condvar3_3.pass  \
 	  condvar4.pass  condvar5.pass  condvar6.pass  \
-	  condvar7.pass  condvar8.pass  condvar9.pass  \
+	  condvar7.pass  condvar8.pass  condvar9.pass  condvar10.pass  \
 	  errno1.pass  \
 	  rwlock1.pass  rwlock2.pass  rwlock3.pass  rwlock4.pass  \
 	  rwlock5.pass  rwlock6.pass  rwlock7.pass  rwlock8.pass  \
@@ -154,7 +154,7 @@ STATICRESULTS = \
 	  tsd1.pass  tsd2.pass  delay1.pass  delay2.pass  eyal1.pass  \
 	  condvar3.pass  condvar3_1.pass  condvar3_2.pass  condvar3_3.pass  \
 	  condvar4.pass  condvar5.pass  condvar6.pass  \
-	  condvar7.pass  condvar8.pass  condvar9.pass  \
+	  condvar7.pass  condvar8.pass  condvar9.pass  condvar10.pass  \
 	  errno1.pass  \
 	  rwlock1.pass  rwlock2.pass  rwlock3.pass  rwlock4.pass  \
 	  rwlock5.pass  rwlock6.pass  rwlock7.pass  rwlock8.pass  \
@@ -304,6 +304,7 @@ clean:
 	- $(RM) *.o
 	- $(RM) *.asm
 	- $(RM) *.exe
+	- $(RM) *.exe.manifest
 	- $(RM) *.pass
 	- $(RM) *.bench
 	- $(RM) *.log
@@ -349,6 +350,7 @@ condvar6.pass: condvar5.pass
 condvar7.pass: condvar6.pass cleanup1.pass
 condvar8.pass: condvar7.pass
 condvar9.pass: condvar8.pass
+condvar10.pass: condvar9.pass
 context1.pass: cancel1.pass
 count1.pass: join1.pass
 create1.pass: mutex2.pass
