@@ -6,10 +6,11 @@
  *
  *      Pthreads-win32 - POSIX Threads Library for Win32
  *      Copyright(C) 1998 John E. Bossom
- *      Copyright(C) 1999,2005 Pthreads-win32 contributors
- * 
- *      Contact Email: rpj@callisto.canberra.edu.au
- * 
+ *      Copyright(C) 1999,2012 Pthreads-win32 contributors
+ *
+ *      Homepage1: http://sourceware.org/pthreads-win32/
+ *      Homepage2: http://sourceforge.net/projects/pthreads4w/
+ *
  *      The current list of contributors is contained
  *      in the file CONTRIBUTORS included with the source
  *      code distribution. The list can also be seen at the
@@ -74,6 +75,8 @@
 #define _WIN32_WINNT 0x400
 
 #include "test.h"
+/* Cheating here - sneaking a peek at library internals */
+#include "../config.h"
 #include "../implement.h"
 #include "../context.h"
 
@@ -85,7 +88,7 @@ static void * func(void * arg)
 
   Sleep(1000);
 
-  return 0; 
+  return 0;
 }
 
 static void
@@ -95,7 +98,6 @@ anotherEnding ()
    * Switched context
    */
   washere++;
-
   pthread_exit(0);
 }
 
@@ -104,6 +106,9 @@ main()
 {
   pthread_t t;
   HANDLE hThread;
+
+  DWORD dwMode = SetErrorMode(SEM_NOGPFAULTERRORBOX);
+  SetErrorMode(dwMode | SEM_NOGPFAULTERRORBOX);
 
   assert(pthread_create(&t, NULL, func, NULL) == 0);
 

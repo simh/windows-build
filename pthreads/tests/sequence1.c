@@ -6,10 +6,11 @@
  *
  *      Pthreads-win32 - POSIX Threads Library for Win32
  *      Copyright(C) 1998 John E. Bossom
- *      Copyright(C) 1999,2005 Pthreads-win32 contributors
- * 
- *      Contact Email: rpj@callisto.canberra.edu.au
- * 
+ *      Copyright(C) 1999,2012 Pthreads-win32 contributors
+ *
+ *      Homepage1: http://sourceware.org/pthreads-win32/
+ *      Homepage2: http://sourceforge.net/projects/pthreads4w/
+ *
  *      The current list of contributors is contained
  *      in the file CONTRIBUTORS included with the source
  *      code distribution. The list can also be seen at the
@@ -125,8 +126,6 @@ main()
           seqmap[(int)pthread_getunique_np(pthread_self())] = 1;
         }
       assert(pthread_create(&t[i], &attr, func, NULL) == 0);
-      if (0 == (i % 200))
-      	Sleep(100);
     }
 
   while (NUMTHREADS > InterlockedExchangeAdd((LPLONG)&done, 0L))

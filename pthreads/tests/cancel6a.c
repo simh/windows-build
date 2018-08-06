@@ -24,7 +24,7 @@
  *
  * --------------------------------------------------------------------------
  *
- * Test Synopsis: Test double cancelation - asynchronous.
+ * Test Synopsis: Test double cancellation - asynchronous.
  * Second attempt should fail (ESRCH).
  *
  * Test Method (Validation or Falsification):
@@ -100,7 +100,7 @@ mythread(void * arg)
 
   /*
    * We wait up to 10 seconds, waking every 0.1 seconds,
-   * for a cancelation to be applied to us.
+   * for a cancellation to be applied to us.
    */
   for (bag->count = 0; bag->count < 100; bag->count++)
     Sleep(100);
@@ -115,6 +115,9 @@ main()
   int i;
   pthread_t t[NUMTHREADS + 1];
 
+  DWORD dwMode = SetErrorMode(SEM_NOGPFAULTERRORBOX);
+  SetErrorMode(dwMode | SEM_NOGPFAULTERRORBOX);
+
   assert((t[0] = pthread_self()).p != NULL);
 
   for (i = 1; i <= NUMTHREADS; i++)
@@ -125,7 +128,7 @@ main()
     }
 
   /*
-   * Code to control or munipulate child threads should probably go here.
+   * Code to control or manipulate child threads should probably go here.
    */
   Sleep(500);
 
@@ -164,9 +167,9 @@ main()
       void* result = (void*)0;
 
       /*
-       * The thread does not contain any cancelation points, so
+       * The thread does not contain any cancellation points, so
        * a return value of PTHREAD_CANCELED confirms that async
-       * cancelation succeeded.
+       * cancellation succeeded.
        */
       assert(pthread_join(t[i], &result) == 0);
 

@@ -8,26 +8,27 @@
  *
  *      Pthreads-win32 - POSIX Threads Library for Win32
  *      Copyright(C) 1998 John E. Bossom
- *      Copyright(C) 1999,2005 Pthreads-win32 contributors
- * 
- *      Contact Email: rpj@callisto.canberra.edu.au
- * 
+ *      Copyright(C) 1999,2012 Pthreads-win32 contributors
+ *
+ *      Homepage1: http://sourceware.org/pthreads-win32/
+ *      Homepage2: http://sourceforge.net/projects/pthreads4w/
+ *
  *      The current list of contributors is contained
  *      in the file CONTRIBUTORS included with the source
  *      code distribution. The list can also be seen at the
  *      following World Wide Web location:
  *      http://sources.redhat.com/pthreads-win32/contributors.html
- * 
+ *
  *      This library is free software; you can redistribute it and/or
  *      modify it under the terms of the GNU Lesser General Public
  *      License as published by the Free Software Foundation; either
  *      version 2 of the License, or (at your option) any later version.
- * 
+ *
  *      This library is distributed in the hope that it will be useful,
  *      but WITHOUT ANY WARRANTY; without even the implied warranty of
  *      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  *      Lesser General Public License for more details.
- * 
+ *
  *      You should have received a copy of the GNU Lesser General Public
  *      License along with this library in the file COPYING.LIB;
  *      if not, write to the Free Software Foundation, Inc.,
@@ -37,7 +38,7 @@
  * --------------------------------------------------------------------------
  *
  * Description:
- * - 
+ * -
  *
  * Test Method (validation or falsification):
  * - validation
@@ -49,13 +50,13 @@
  * - destroy routine is called on each thread exit including the main thread
  *
  * Features Tested:
- * - 
+ * -
  *
  * Cases Tested:
- * - 
+ * -
  *
  * Environment:
- * - 
+ * -
  *
  * Input:
  * - none
@@ -69,11 +70,8 @@
  * - main thread also has a POSIX thread identity
  *
  * Pass Criteria:
- * - stdout matches file reference/tsd1.out
  *
  * Fail Criteria:
- * - fails to match file reference/tsd1.out
- * - output identifies failed component
  */
 
 #include <sched.h>
@@ -188,19 +186,19 @@ main()
 
   for (i = 1; i < NUM_THREADS; i++)
     {
-	/*
-	 * The counter is incremented once when the key is set to
-	 * a value, and again when the key is destroyed. If the key
-	 * doesn't get set for some reason then it will still be
-	 * NULL and the destroy function will not be called, and
-	 * hence accesscount will not equal 2.
-	 */
-	if (accesscount[i] != 2)
-	  {
-	    fail++;
-	    fprintf(stderr, "Thread %d key, set = %d, destroyed = %d\n",
-			i, thread_set[i], thread_destroyed[i]);
-	  }
+      /*
+       * The counter is incremented once when the key is set to
+       * a value, and again when the key is destroyed. If the key
+       * doesn't get set for some reason then it will still be
+       * NULL and the destroy function will not be called, and
+       * hence accesscount will not equal 2.
+       */
+      if (accesscount[i] != 2)
+        {
+          fail++;
+          fprintf(stderr, "Thread %d key, set = %d, destroyed = %d\n",
+              i, thread_set[i], thread_destroyed[i]);
+        }
     }
 
   fflush(stderr);

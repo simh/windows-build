@@ -6,10 +6,11 @@
  *
  *      Pthreads-win32 - POSIX Threads Library for Win32
  *      Copyright(C) 1998 John E. Bossom
- *      Copyright(C) 1999,2005 Pthreads-win32 contributors
- * 
- *      Contact Email: rpj@callisto.canberra.edu.au
- * 
+ *      Copyright(C) 1999,2012 Pthreads-win32 contributors
+ *
+ *      Homepage1: http://sourceware.org/pthreads-win32/
+ *      Homepage2: http://sourceforge.net/projects/pthreads4w/
+ *
  *      The current list of contributors is contained
  *      in the file CONTRIBUTORS included with the source
  *      code distribution. The list can also be seen at the
@@ -82,23 +83,17 @@
 pthread_cond_t cnd;
 pthread_mutex_t mtx;
 
+static const long NANOSEC_PER_SEC = 1000000000L;
+
 int main()
 {
    int rc;
-
-   struct timespec abstime = { 0, 0 };
-   PTW32_STRUCT_TIMEB currSysTime;
-   const DWORD NANOSEC_PER_MILLISEC = 1000000;
+   struct timespec abstime, reltime = { 0, NANOSEC_PER_SEC/2 };
 
    assert(pthread_cond_init(&cnd, 0) == 0);
    assert(pthread_mutex_init(&mtx, 0) == 0);
 
-   /* get current system time */
-   PTW32_FTIME(&currSysTime);
-
-   abstime.tv_sec = (long)currSysTime.time;
-   abstime.tv_nsec = NANOSEC_PER_MILLISEC * currSysTime.millitm;
-   abstime.tv_sec += 1;
+   (void) pthread_win32_getabstime_np(&abstime, &reltime);
 
    /* Here pthread_cond_timedwait should time out after one second. */
 
@@ -108,21 +103,15 @@ int main()
 
    assert(pthread_mutex_unlock(&mtx) == 0);
 
-   /* Here, the condition variable is signaled, but there are no
+   /* Here, the condition variable is signalled, but there are no
       threads waiting on it. The signal should be lost and
       the next pthread_cond_timedwait should time out too. */
 
-//   assert(pthread_mutex_lock(&mtx) == 0);
-
    assert((rc = pthread_cond_signal(&cnd)) == 0);
-
-//   assert(pthread_mutex_unlock(&mtx) == 0);
 
    assert(pthread_mutex_lock(&mtx) == 0);
 
-   abstime.tv_sec = (long)currSysTime.time;
-   abstime.tv_nsec = NANOSEC_PER_MILLISEC * currSysTime.millitm;
-   abstime.tv_sec += 1;
+   (void) pthread_win32_getabstime_np(&abstime, &reltime);
 
    assert((rc = pthread_cond_timedwait(&cnd, &mtx, &abstime)) == ETIMEDOUT);
 

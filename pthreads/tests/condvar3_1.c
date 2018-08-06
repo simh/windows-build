@@ -6,10 +6,11 @@
  *
  *      Pthreads-win32 - POSIX Threads Library for Win32
  *      Copyright(C) 1998 John E. Bossom
- *      Copyright(C) 1999,2005 Pthreads-win32 contributors
- * 
- *      Contact Email: rpj@callisto.canberra.edu.au
- * 
+ *      Copyright(C) 1999,2012 Pthreads-win32 contributors
+ *
+ *      Homepage1: http://sourceware.org/pthreads-win32/
+ *      Homepage2: http://sourceforge.net/projects/pthreads4w/
+ *
  *      The current list of contributors is contained
  *      in the file CONTRIBUTORS included with the source
  *      code distribution. The list can also be seen at the
@@ -84,7 +85,7 @@ static pthread_cond_t cv;
 static pthread_cond_t cv1;
 static pthread_mutex_t mutex;
 static pthread_mutex_t mutex1;
-static struct timespec abstime = { 0, 0 };
+static struct timespec abstime = { 0, 0 }, reltime = { 5, 0 };
 static int timedout = 0;
 static int signaled = 0;
 static int awoken = 0;
@@ -119,6 +120,8 @@ mythread(void * arg)
   return arg;
 }
 
+/* Cheating here - sneaking a peek at library internals */
+#include "../config.h"
 #include "../implement.h"
 
 int
@@ -127,8 +130,6 @@ main()
   int i;
   pthread_t t[NUMTHREADS + 1];
   void* result = (void*)0;
-  PTW32_STRUCT_TIMEB currSysTime;
-  const DWORD NANOSEC_PER_MILLISEC = 1000000;
 
   assert(pthread_cond_init(&cv, NULL) == 0);
   assert(pthread_cond_init(&cv1, NULL) == 0);
@@ -136,13 +137,7 @@ main()
   assert(pthread_mutex_init(&mutex, NULL) == 0);
   assert(pthread_mutex_init(&mutex1, NULL) == 0);
 
-  /* get current system time */
-  PTW32_FTIME(&currSysTime);
-
-  abstime.tv_sec = (long)currSysTime.time;
-  abstime.tv_nsec = NANOSEC_PER_MILLISEC * currSysTime.millitm;
-
-  abstime.tv_sec += 5;
+  (void) pthread_win32_getabstime_np(&abstime, &reltime);
 
   assert(pthread_mutex_lock(&mutex1) == 0);
 

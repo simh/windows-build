@@ -42,7 +42,6 @@
  */
 
 #include "test.h"
-#include <sys/timeb.h>
 
 static int lockCount;
 
@@ -51,16 +50,9 @@ static pthread_mutexattr_t mxAttr;
 
 void * locker(void * arg)
 {
-  struct timespec abstime = { 0, 0 };
-  PTW32_STRUCT_TIMEB currSysTime;
-  const DWORD NANOSEC_PER_MILLISEC = 1000000;
+  struct timespec abstime, reltime = { 1, 0 };
 
-  PTW32_FTIME(&currSysTime);
-
-  abstime.tv_sec = (long)currSysTime.time;
-  abstime.tv_nsec = NANOSEC_PER_MILLISEC * currSysTime.millitm;
-
-  abstime.tv_sec += 1;
+  (void) pthread_win32_getabstime_np(&abstime, &reltime);
 
   assert(pthread_mutex_timedlock(&mutex, &abstime) == ETIMEDOUT);
 
@@ -90,7 +82,10 @@ main()
 
   assert(pthread_create(&t, NULL, locker, NULL) == 0);
 
-  Sleep(2000);
+  while (lockCount < 1)
+    {
+      Sleep(1);
+    }
 
   assert(lockCount == 1);
 
