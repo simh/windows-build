@@ -7,7 +7,7 @@
  * Defaults: see target specific redefinitions below.
  *********************************************************************/
 
-/* We're building the pthreads-win32 library */
+/* We're building the Pthreads4w library */
 #define PTW32_BUILD
 
 /* CPU affinity */
@@ -33,9 +33,6 @@
 
 /* Define if you don't have Win32 calloc. (eg. WinCE)  */
 #undef NEED_CALLOC
-
-/* Define if you don't have Win32 ftime. (eg. WinCE)  */
-#undef NEED_FTIME
 
 /* Define if you don't have Win32 semaphores. (eg. WinCE 2.1 or earlier)  */
 #undef NEED_SEM
@@ -109,7 +106,7 @@
  * Target specific groups
  *
  * If you find that these are incorrect or incomplete please report it
- * to the pthreads-win32 maintainer. Thanks.
+ * to the Pthreads4w maintainer. Thanks.
  *********************************************************************/
 #if defined(WINCE)
 #  undef  HAVE_CPU_AFFINITY
@@ -117,7 +114,6 @@
 #  define NEED_CREATETHREAD
 #  define NEED_ERRNO
 #  define NEED_CALLOC
-#  define NEED_FTIME
 /* #  define NEED_SEM */
 #  define NEED_UNICODE_CONSTS
 #  define NEED_PROCESS_AFFINITY_MASK

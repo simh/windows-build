@@ -1,8 +1,6 @@
 /*
- * context.h
+ * File: errno2.c
  *
- * Description:
- * POSIX thread macros related to thread cancellation.
  *
  * --------------------------------------------------------------------------
  *
@@ -32,43 +30,70 @@
  *
  *    You should have received a copy of the GNU General Public License
  *    along with Pthreads4w.  If not, see <http://www.gnu.org/licenses/>. *
+ *
+ * --------------------------------------------------------------------------
+ *
+ * Test Synopsis: Test transmissibility of errno between library and exe
+ * - 
+ *
+ * Test Method (Validation or Falsification):
+ * - Validation
+ *
+ * Requirements Tested:
+ * - 
+ *
+ * Features Tested:
+ * - 
+ *
+ * Cases Tested:
+ * - 
+ *
+ * Description:
+ * - 
+ *
+ * Environment:
+ * - 
+ *
+ * Input:
+ * - None.
+ *
+ * Output:
+ * - File name, Line number, and failed expression on failure.
+ * - No output on success.
+ *
+ * Assumptions:
+ * - 
+ *
+ * Pass Criteria:
+ * - Process returns zero exit status.
+ *
+ * Fail Criteria:
+ * - Process returns non-zero exit status.
  */
 
-#ifndef PTW32_CONTEXT_H
-#define PTW32_CONTEXT_H
+#include "test.h"
 
-#undef PTW32_PROGCTR
+int
+main()
+{
+  int err = 0;
+  errno = 0;
 
-#if defined(_M_IX86) || (defined(_X86_) && !defined(__amd64__))
-#define PTW32_PROGCTR(Context)  ((Context).Eip)
+  assert(errno == 0);
+  assert(0 != sem_destroy(NULL));
+
+  err =
+#if defined(PTW32_USES_SEPARATE_CRT)
+      GetLastError();
+#else
+      errno;
 #endif
 
-#if defined (_M_IA64) || defined(_IA64)
-#define PTW32_PROGCTR(Context)  ((Context).StIIP)
-#endif
+  assert(err != 0);
+  assert(err == EINVAL);
 
-#if defined(_MIPS_) || defined(MIPS)
-#define PTW32_PROGCTR(Context)  ((Context).Fir)
-#endif
-
-#if defined(_ALPHA_)
-#define PTW32_PROGCTR(Context)  ((Context).Fir)
-#endif
-
-#if defined(_PPC_)
-#define PTW32_PROGCTR(Context)  ((Context).Iar)
-#endif
-
-#if defined(_AMD64_) || defined(__amd64__)
-#define PTW32_PROGCTR(Context)  ((Context).Rip)
-#endif
-
-#if defined(_ARM_) || defined(ARM) || defined(_M_ARM) || defined(_M_ARM64)
-#define PTW32_PROGCTR(Context)  ((Context).Pc)
-#endif
-
-#if !defined(PTW32_PROGCTR)
-#error Module contains CPU-specific code; modify and recompile.
-#endif
-
-#endif
+  /*
+   * Success.
+   */
+  return 0;
+}

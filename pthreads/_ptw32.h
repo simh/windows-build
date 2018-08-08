@@ -2,55 +2,53 @@
  * Module: _ptw32.h
  *
  * Purpose:
- *      Pthreads-win32 internal macros, to be shared by other headers
- *      comprising the pthreads-win32 package.
+ *      Pthreads4w internal macros, to be shared by other headers
+ *      comprising the Pthreads4w package.
  *
  * --------------------------------------------------------------------------
  *
- *      Pthreads-win32 - POSIX Threads Library for Win32
+ *      Pthreads4w - POSIX Threads Library for Win32
  *      Copyright(C) 1998 John E. Bossom
- *      Copyright(C) 1999-2012, 2016, Pthreads-win32 contributors
+ *      Copyright(C) 1999-2018, Pthreads4w contributors
  *
- *      Homepage1: http://sourceware.org/pthreads-win32/
- *      Homepage2: http://sourceforge.net/projects/pthreads4w/
+ *      Homepage: https://sourceforge.net/projects/pthreads4w/
  *
  *      The current list of contributors is contained
  *      in the file CONTRIBUTORS included with the source
  *      code distribution. The list can also be seen at the
  *      following World Wide Web location:
- *      http://sources.redhat.com/pthreads-win32/contributors.html
+ *      https://sourceforge.net/p/pthreads4w/wiki/Contributors/
  *
- *      This library is free software; you can redistribute it and/or
- *      modify it under the terms of the GNU Lesser General Public
- *      License as published by the Free Software Foundation; either
- *      version 2 of the License, or (at your option) any later version.
+ * This file is part of Pthreads4w.
  *
- *      This library is distributed in the hope that it will be useful,
- *      but WITHOUT ANY WARRANTY; without even the implied warranty of
- *      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- *      Lesser General Public License for more details.
+ *    Pthreads4w is free software: you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation, either version 3 of the License, or
+ *    (at your option) any later version.
  *
- *      You should have received a copy of the GNU Lesser General Public
- *      License along with this library in the file COPYING.LIB;
- *      if not, write to the Free Software Foundation, Inc.,
- *      59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
+ *    Pthreads4w is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
  *
+ *    You should have received a copy of the GNU General Public License
+ *    along with Pthreads4w.  If not, see <http://www.gnu.org/licenses/>. *
  */
 #ifndef __PTW32_H
 #define __PTW32_H
 
-/* See the README file for an explanation of the pthreads-win32
+/* See the README file for an explanation of the Pthreads4w
  * version numbering scheme and how the DLL is named etc.
  *
  * FIXME: consider moving this to <_ptw32.h>; maybe also add a
  * leading underscore to the macro names.
  */
 #define PTW32_VERSION_MAJOR 2
-#define PTW32_VERSION_MINOR 10
+#define PTW32_VERSION_MINOR 11
 #define PTW32_VERSION_MICRO 0
 #define PTW32_VERION_BUILD 0
-#define PTW32_VERSION 2,10,0,0
-#define PTW32_VERSION_STRING "2, 10, 0, 0\0"
+#define PTW32_VERSION 2,11,0,0
+#define PTW32_VERSION_STRING "2, 11, 0, 0\0"
 
 #if defined(__GNUC__)
 # pragma GCC system_header
@@ -67,21 +65,7 @@
 # define __PTW32_END_C_DECLS
 #endif
 
-#if defined (PTW32_STATIC_LIB) && _MSC_VER >= 1400
-# define PTW32_STATIC_TLSLIB
-#endif
-
-/* When building the library, you should define PTW32_BUILD so that
- * the variables/functions are exported correctly. When using the library,
- * do NOT define PTW32_BUILD, and then the variables/functions will
- * be imported correctly.
- *
- * FIXME: Used defined feature test macros, such as PTW32_STATIC_LIB, (and
- * maybe even PTW32_BUILD), should be renamed with one initial underscore;
- * internally defined macros, such as PTW32_DLLPORT, should be renamed with
- * two initial underscores ... perhaps __PTW32_DECLSPEC is nicer anyway?
- */
-#if defined PTW32_STATIC_LIB || defined PTW32_STATIC_TLSLIB
+#if defined PTW32_STATIC_LIB
 # define PTW32_DLLPORT
 
 #elif defined PTW32_BUILD
@@ -129,7 +113,6 @@
 #    define NEED_CREATETHREAD
 #    define NEED_ERRNO
 #    define NEED_CALLOC
-#    define NEED_FTIME
 #    define NEED_UNICODE_CONSTS
 #    define NEED_PROCESS_AFFINITY_MASK
 /* This may not be needed */

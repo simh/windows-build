@@ -1,7 +1,7 @@
 /*
  * reinit1.c
  *
- * Same test as rwlock7.c but loop two or times reinitialising the library
+ * Same test as rwlock7.c but loop two or more times reinitialising the library
  * each time, to test reinitialisation. We use a rwlock test because rw locks
  * use CVs, mutexes and semaphores internally.
  *
