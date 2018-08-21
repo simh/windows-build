@@ -29,7 +29,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine=""
+				CommandLine="if exist &quot;$(OutDir)\$(TargetName).lib&quot; del &quot;$(OutDir)\$(TargettName).lib&quot;&#x0D;&#x0A;if exist &quot;$(OutDir)\$(TargetName).pdb&quot; del &quot;$(OutDir)\$(TargetName).pdb&quot;&#x0D;&#x0A;"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -56,7 +56,7 @@
 				ExceptionHandling="0"
 				RuntimeLibrary="1"
 				BufferSecurityCheck="false"
-				ProgramDataBaseFileName="$(OutDir)\SDL2-StaticD.pdb"
+				ProgramDataBaseFileName="$(OutDir)\$(TargetName).pdb"
 				WarningLevel="3"
 				SuppressStartupBanner="true"
 				Detect64BitPortabilityProblems="false"
@@ -92,6 +92,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
+				CommandLine="copy &quot;$(OutDir)\$(TargetName).lib&quot; ..\..\..\..\lib\lib-VC2008\$(ConfigurationName)\&#x0D;&#x0A;if exist &quot;$(OutDir)\$(TargetName).pdb&quot; copy &quot;$(OutDir)\$(TargetName).pdb&quot; ..\..\..\..\lib\lib-VC2008\$(ConfigurationName)\&#x0D;&#x0A;"
 			/>
 		</Configuration>
 		<Configuration
@@ -105,7 +106,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine=""
+				CommandLine="if exist &quot;$(OutDir)\$(TargetName).lib&quot; del &quot;$(OutDir)\$(TargettName).lib&quot;&#x0D;&#x0A;if exist &quot;$(OutDir)\$(TargetName).pdb&quot; del &quot;$(OutDir)\$(TargetName).pdb&quot;&#x0D;&#x0A;"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -169,6 +170,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
+				CommandLine="copy &quot;$(OutDir)\$(TargetName).lib&quot; ..\..\..\..\lib\lib-VC2008\$(ConfigurationName)\&#x0D;&#x0A;if exist &quot;$(OutDir)\$(TargetName).pdb&quot; copy &quot;$(OutDir)\$(TargetName).pdb&quot; ..\..\..\..\lib\lib-VC2008\$(ConfigurationName)\&#x0D;&#x0A;"
 			/>
 		</Configuration>
 		<Configuration
@@ -1013,11 +1015,11 @@
 			>
 		</File>
 		<File
-			RelativePath="..\..\src\render\opengl\SDL_glfuncs.h"
+			RelativePath="..\..\src\video\SDL_glfuncs.h"
 			>
 		</File>
 		<File
-			RelativePath="..\..\src\video\SDL_glfuncs.h"
+			RelativePath="..\..\src\render\opengl\SDL_glfuncs.h"
 			>
 		</File>
 		<File
