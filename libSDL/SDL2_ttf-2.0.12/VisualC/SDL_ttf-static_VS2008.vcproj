@@ -51,14 +51,15 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;$(ProjectDir)\external\include&quot;;&quot;../../SDL2-2.0.3/include&quot;"
+				AdditionalIncludeDirectories="&quot;$(ProjectDir)\external\include&quot;;&quot;../../SDL2-2.0.8/include&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS"
-				MinimalRebuild="true"
+				MinimalRebuild="false"
 				RuntimeLibrary="1"
 				PrecompiledHeaderFile=".\Debug/SDL2_ttf-staticd.pch"
+				ProgramDataBaseFileName="$(OutDir)\$(TargetName).pdb"
 				WarningLevel="3"
 				SuppressStartupBanner="true"
-				DebugInformationFormat="4"
+				DebugInformationFormat="3"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -127,7 +128,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="&quot;$(ProjectDir)\external\include&quot;;&quot;../../SDL2-2.0.3/include&quot;"
+				AdditionalIncludeDirectories="&quot;$(ProjectDir)\external\include&quot;;&quot;../../SDL2-2.0.8/include&quot;"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS"
 				StringPooling="true"
 				RuntimeLibrary="0"

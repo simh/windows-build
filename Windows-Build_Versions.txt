@@ -18,7 +18,7 @@
 ::     .../simh/windows-build/libSDL/SDL2-2.0.5/include/SDL.h
 ::        ...
 ::
-WINDOWS-BUILD           20180830
+WINDOWS-BUILD           20181002
 PACKAGE LIBSDL          2.0.8
 PACKAGE WINPCAP         4.1.2
 PACKAGE PTHREADS        2.11.1
