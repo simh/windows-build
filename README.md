@@ -3,6 +3,12 @@
 This repository contains the external dependencies needed to build full
 asynchronous, networking and video support for the simh simulators on Windows.
 
+The files provided here are only meant for users who want to build simh 
+simulators.  The strategy is to download or clone this repository so that 
+they can build under various versions of Microsoft Visual Studio.  No user 
+should ever be building these pieces unless you are explicitly maintaining 
+this repository.
+
 It contains five separate packages which the windows simh build depends on:
     The WinPcap developer Pack
     Posix threads for Windows

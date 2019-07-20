@@ -2,7 +2,7 @@
 :: This file lists the versions of the various packages currently part 
 :: of simh windows-build dependency repository.  The files in this 
 :: repository are required to be proximate to the simh source when
-:: building simh simulators on Windows with Visual Studio 2008-2013 
+:: building simh simulators on Windows with Visual Studio 2008-2019 
 :: and MinGW.
 ::
 :: For Example, the directory structure should look something like:
@@ -18,7 +18,7 @@
 ::     .../simh/windows-build/libSDL/SDL2-2.0.5/include/SDL.h
 ::        ...
 ::
-WINDOWS-BUILD           20190124
+WINDOWS-BUILD           20190720
 PACKAGE LIBSDL          2.0.8
 PACKAGE WINPCAP         4.1.2
 PACKAGE PTHREADS        2.11.1
