@@ -1,0 +1,3 @@
+# This file lists the Microsoft Visual C++ compatible libraries
+# Leading Space, Visual C++ Version, Visual C++ Version Name
+_VC_VER=2019 Visual Studio 2019
