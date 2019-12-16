@@ -9,7 +9,7 @@ and used pieces of the Win32 PCRE package found at:
 
 http://gnuwin32.sourceforge.net/packages/pcre.htm
 
-I have updated the VS2008 projects to build the PCRE vesion 8.36 
+I have updated the VS2008 projects to build the PCRE vesion 8.43 
 binaries and added new project definitions to produce static libraries 
 and statically built pcregrep and pcretest.
 

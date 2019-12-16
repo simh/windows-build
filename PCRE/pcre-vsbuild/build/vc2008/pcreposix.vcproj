@@ -182,7 +182,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\pcre-8.36\pcreposix.c"
+				RelativePath="..\..\..\pcre-8.43\pcreposix.c"
 				>
 			</File>
 		</Filter>

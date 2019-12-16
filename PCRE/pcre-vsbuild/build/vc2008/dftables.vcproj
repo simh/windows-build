@@ -87,7 +87,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="$(TargetPath) pcre_chartables.c&#x0D;&#x0A;if exist pcre_chartables.c ( COPY /Y &quot;pcre_chartables.c&quot; &quot;..\..\..\pcre-8.36&quot; )&#x0D;&#x0A;"
+				CommandLine="$(TargetPath) pcre_chartables.c&#x0D;&#x0A;if exist pcre_chartables.c ( COPY /Y &quot;pcre_chartables.c&quot; &quot;..\..\..\pcre-8.43&quot; )&#x0D;&#x0A;"
 			/>
 		</Configuration>
 		<Configuration
@@ -164,7 +164,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="$(TargetPath) pcre_chartables.c&#x0D;&#x0A;if exist pcre_chartables.c ( COPY /Y &quot;pcre_chartables.c&quot; &quot;..\..\..\pcre-8.36&quot; )&#x0D;&#x0A;"
+				CommandLine="$(TargetPath) pcre_chartables.c&#x0D;&#x0A;if exist pcre_chartables.c ( COPY /Y &quot;pcre_chartables.c&quot; &quot;..\..\..\pcre-8.43&quot; )&#x0D;&#x0A;"
 			/>
 		</Configuration>
 	</Configurations>
@@ -177,7 +177,7 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath="..\..\..\pcre-8.36\dftables.c"
+				RelativePath="..\..\..\pcre-8.43\dftables.c"
 				>
 			</File>
 		</Filter>

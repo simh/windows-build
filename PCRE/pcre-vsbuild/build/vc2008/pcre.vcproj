@@ -182,87 +182,87 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\pcre-8.36\pcre_byte_order.c"
+				RelativePath="..\..\..\pcre-8.43\pcre_byte_order.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\pcre-8.36\pcre_chartables.c"
+				RelativePath="..\..\..\pcre-8.43\pcre_chartables.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\pcre-8.36\pcre_compile.c"
+				RelativePath="..\..\..\pcre-8.43\pcre_compile.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\pcre-8.36\pcre_config.c"
+				RelativePath="..\..\..\pcre-8.43\pcre_config.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\pcre-8.36\pcre_dfa_exec.c"
+				RelativePath="..\..\..\pcre-8.43\pcre_dfa_exec.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\pcre-8.36\pcre_exec.c"
+				RelativePath="..\..\..\pcre-8.43\pcre_exec.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\pcre-8.36\pcre_fullinfo.c"
+				RelativePath="..\..\..\pcre-8.43\pcre_fullinfo.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\pcre-8.36\pcre_get.c"
+				RelativePath="..\..\..\pcre-8.43\pcre_get.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\pcre-8.36\pcre_globals.c"
+				RelativePath="..\..\..\pcre-8.43\pcre_globals.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\pcre-8.36\pcre_jit_compile.c"
+				RelativePath="..\..\..\pcre-8.43\pcre_jit_compile.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\pcre-8.36\pcre_maketables.c"
+				RelativePath="..\..\..\pcre-8.43\pcre_maketables.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\pcre-8.36\pcre_newline.c"
+				RelativePath="..\..\..\pcre-8.43\pcre_newline.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\pcre-8.36\pcre_ord2utf8.c"
+				RelativePath="..\..\..\pcre-8.43\pcre_ord2utf8.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\pcre-8.36\pcre_refcount.c"
+				RelativePath="..\..\..\pcre-8.43\pcre_refcount.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\pcre-8.36\pcre_string_utils.c"
+				RelativePath="..\..\..\pcre-8.43\pcre_string_utils.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\pcre-8.36\pcre_study.c"
+				RelativePath="..\..\..\pcre-8.43\pcre_study.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\pcre-8.36\pcre_tables.c"
+				RelativePath="..\..\..\pcre-8.43\pcre_tables.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\pcre-8.36\pcre_ucd.c"
+				RelativePath="..\..\..\pcre-8.43\pcre_ucd.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\pcre-8.36\pcre_valid_utf8.c"
+				RelativePath="..\..\..\pcre-8.43\pcre_valid_utf8.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\pcre-8.36\pcre_version.c"
+				RelativePath="..\..\..\pcre-8.43\pcre_version.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\pcre-8.36\pcre_xclass.c"
+				RelativePath="..\..\..\pcre-8.43\pcre_xclass.c"
 				>
 			</File>
 		</Filter>
@@ -280,11 +280,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\pcre-8.36\pcre_internal.h"
+				RelativePath="..\..\..\pcre-8.43\pcre_internal.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\pcre-8.36\ucp.h"
+				RelativePath="..\..\..\pcre-8.43\ucp.h"
 				>
 			</File>
 		</Filter>
