@@ -1,6 +1,6 @@
 @echo off
 : Tbis procedure installs tbe required object libraries to build using 
-: Visual Studio 2017
+: Visual Studio 2019
 : Note: Most object libraries are completely compatible from 
 :       Visual Studio 2008, so those are referenced directly with 
 :       specific exceptions handled here
