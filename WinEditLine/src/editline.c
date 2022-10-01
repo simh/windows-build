@@ -980,6 +980,9 @@ char *readline(const char *prompt)
     _el_clean_exit();
     return NULL;
   }
+  /* If prompt starts with newline(s), ignore them */
+  while (*rl_prompt == '\n')
+    memmove(rl_prompt, rl_prompt + 1, strlen (rl_prompt) + 1);
   if (!_el_mb2w(rl_prompt, &_el_prompt)) {
     _el_clean_exit();
     return NULL;
