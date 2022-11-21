@@ -43,6 +43,10 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define UNICODE
 #endif
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 const char *rl_readline_name = NULL;
 wchar_t *_el_print = NULL;
 wchar_t *_el_temp_print = NULL;
@@ -83,3 +87,7 @@ DWORD _el_prev_out_cm = 0;
 HANDLE _el_h_in = NULL;
 HANDLE _el_h_out = NULL;
 COORD _el_prev_size;
+
+#ifdef __cplusplus
+}
+#endif
