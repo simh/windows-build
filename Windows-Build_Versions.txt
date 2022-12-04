@@ -18,14 +18,13 @@
 ::     .../simh/windows-build/libSDL/SDL2-2.0.5/include/SDL.h
 ::        ...
 ::
-WINDOWS-BUILD           20221109
+WINDOWS-BUILD           20221202
 PACKAGE LIBSDL          2.0.20
 PACKAGE WINPCAP         4.1.2
 PACKAGE PTHREADS        2.11.1
 PACKAGE PCRE            8.45
 PACKAGE LIBPNG          1.6.37
 PACKAGE LIBSDL_TTF      2.0.12
-PACKAGE WINEDITLINE     2.206
 ::
 :: Local or ultimately upstream included fixes needed by simh
 ::
