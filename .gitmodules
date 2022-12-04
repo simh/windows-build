@@ -1,0 +1,4 @@
+[submodule "wineditline"]
+	path = wineditline
+	url = https://github.com/ptosco/wineditline.git
+	branch = master
