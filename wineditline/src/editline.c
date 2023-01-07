@@ -1348,6 +1348,19 @@ char *readline(const char *prompt)
             break;
             
             /*
+            EOF
+            */
+            case 0x1A:  /* CTRL + Z */
+            if ((int)wcslen(_el_line_buffer) == 0) {
+              _el_insert_char(_T("^Z"), 2);
+              _el_clean_exit();
+              return NULL;
+            } else {
+              Beep( 800, 200 );
+            }
+            break;
+
+            /*
             delete word
             */
             case 0x17:  /* CTRL + W */
