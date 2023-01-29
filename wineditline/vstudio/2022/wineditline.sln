@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wineditline", "wineditline.vcxproj", "{7121DF6A-C0A3-4648-8410-F5F9749E50D6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7121DF6A-C0A3-4648-8410-F5F9749E50D6}.Debug|x86.ActiveCfg = Debug|Win32
+		{7121DF6A-C0A3-4648-8410-F5F9749E50D6}.Debug|x86.Build.0 = Debug|Win32
+		{7121DF6A-C0A3-4648-8410-F5F9749E50D6}.Release|x86.ActiveCfg = Release|Win32
+		{7121DF6A-C0A3-4648-8410-F5F9749E50D6}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CD030581-4103-4EAA-9E87-B3ABF7FC182D}
+	EndGlobalSection
+EndGlobal

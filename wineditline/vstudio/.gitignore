@@ -1,0 +1,8 @@
+*.ncb
+*.suo
+Debug\*
+Release\*
+*.vcproj.*
+*.vcxproj.user
+.vs\*
+*\Backup\*
