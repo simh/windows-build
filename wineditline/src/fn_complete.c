@@ -557,6 +557,9 @@ char *rl_filename_completion_function(const char *text, int state)
         continue;
       }
       len = (int)wcslen(filedata.cFileName);
+      /*
+      Directory length + name length + possible quotes + NUL
+      */
       buf_size = dir_name_len + len + 3;
       if (!(_el_compl_array[_el_n_compl] = (wchar_t *)
         malloc(buf_size * sizeof(wchar_t)))) {
@@ -586,10 +589,8 @@ char *rl_filename_completion_function(const char *text, int state)
             _el_compl_array[_el_n_compl], (len + 1) * sizeof(wchar_t));
           _el_compl_array[_el_n_compl][0] = _T('\"');
         }
-        //if (_el_line_buffer[rl_point - last_char_quote] != _T('\"')) {
-          wcscat_s(_el_compl_array[_el_n_compl],
-            dir_name_len + len + 3, _T("\""));
-        //}
+        wcscat_s(_el_compl_array[_el_n_compl],
+          buf_size, _T("\""));
       }
       ++_el_n_compl;
     }
