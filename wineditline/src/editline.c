@@ -1407,6 +1407,21 @@ char *readline(const char *prompt)
             }
 
             /*
+            delete until beginning of line
+            */
+            case 0x15:  /* CTRL + U */
+            if (ctrl) {
+              line_len = (int)wcslen(_el_line_buffer);
+              while (rl_point > 0) {
+                if (_el_delete_char(VK_BACK, 1)) {
+                  _el_clean_exit();
+                  return NULL;
+                }
+              }
+              break;
+            }
+
+            /*
             beginning-of-line
             */
             case 0x01:  /* CTRL + A */
