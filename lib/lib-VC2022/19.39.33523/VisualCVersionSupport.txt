@@ -1,0 +1,7 @@
+# This file lists the Microsoft Visual C++ compatible libraries
+# Leading Space, Visual C++ Version, Visual C++ Version Name
+_VC_VER=2022 Visual Studio 2022
+_MSVC_VER=19.36.33523
+_MSVC_TOOLSET_VER=v143
+_MSVC_TOOLSET_DIR=14.39.33519
+
