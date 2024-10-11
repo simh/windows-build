@@ -68,6 +68,14 @@
     <Lib>
       <OutputFile>$(OutDir)$(ProjectName)16.lib</OutputFile>
     </Lib>
+    <PostBuildEvent>
+      <Command>copy /y "$(TargetPath)" "..\..\..\..\lib\lib-VC2022\Release\" &gt;NUL
+if exist "$(TargetDir)$(TargetName).pdb" copy /y "$(TargetDir)$(TargetName).pdb" "..\..\..\..\lib\lib-VC2022\Release\" &gt;NUL
+</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Deploying $(ProjectName) library components</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Library|Win32'">
     <ClCompile>
@@ -84,6 +92,14 @@
     <Lib>
       <OutputFile>$(OutDir)$(ProjectName)16.lib</OutputFile>
     </Lib>
+    <PostBuildEvent>
+      <Command>copy /y "$(TargetPath)" "..\..\..\..\lib\lib-VC2022\Debug\" &gt;NUL
+if exist "$(TargetDir)$(TargetName).pdb" copy /y "$(TargetDir)$(TargetName).pdb" "..\..\..\..\lib\lib-VC2022\Debug\" &gt;NUL
+</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Deploying $(ProjectName) library components</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\png.c" />

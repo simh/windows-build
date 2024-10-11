@@ -60,6 +60,14 @@
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
+    <PostBuildEvent>
+      <Command>copy /y "$(TargetPath)" "..\..\..\..\lib\lib-VC2022\Release\" &gt;NUL
+if exist "$(TargetDir)$(TargetName).pdb" copy /y "$(TargetDir)$(TargetName).pdb" "..\..\..\..\lib\lib-VC2022\Release\" &gt;NUL
+</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Deploying $(ProjectName) library components</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Library|Win32'">
     <ClCompile>
@@ -72,6 +80,14 @@
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
+    <PostBuildEvent>
+      <Command>copy /y "$(TargetPath)" "..\..\..\..\lib\lib-VC2022\Debug\" &gt;NUL
+if exist "$(TargetDir)$(TargetName).pdb" copy /y "$(TargetDir)$(TargetName).pdb" "..\..\..\..\lib\lib-VC2022\Debug\" &gt;NUL
+</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Deploying $(ProjectName) library components</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\zlib-1.2.11\adler32.c" />
