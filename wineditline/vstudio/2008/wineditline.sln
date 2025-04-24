@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual C++ Express 2008
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wineditline", "wineditline.vcproj", "{7121DF6A-C0A3-4648-8410-F5F9749E50D6}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libedit_test", "libedit_test.vcproj", "{B1BB0741-8C31-4EE4-97EC-E906FA4EABE5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -13,6 +15,10 @@ Global
 		{7121DF6A-C0A3-4648-8410-F5F9749E50D6}.Debug|Win32.Build.0 = Debug|Win32
 		{7121DF6A-C0A3-4648-8410-F5F9749E50D6}.Release|Win32.ActiveCfg = Release|Win32
 		{7121DF6A-C0A3-4648-8410-F5F9749E50D6}.Release|Win32.Build.0 = Release|Win32
+		{B1BB0741-8C31-4EE4-97EC-E906FA4EABE5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B1BB0741-8C31-4EE4-97EC-E906FA4EABE5}.Debug|Win32.Build.0 = Debug|Win32
+		{B1BB0741-8C31-4EE4-97EC-E906FA4EABE5}.Release|Win32.ActiveCfg = Release|Win32
+		{B1BB0741-8C31-4EE4-97EC-E906FA4EABE5}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
