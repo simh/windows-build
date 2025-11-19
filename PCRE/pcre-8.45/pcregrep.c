@@ -670,6 +670,10 @@ undefined when it is indeed undefined. */
 #define INVALID_FILE_ATTRIBUTES 0xFFFFFFFF
 #endif
 
+#if defined(_MSC_VER) && (_MSC_VER < 1900)
+#define snprintf _snprintf      /* poor man's snprintf which will work most of the time but has different return value */
+#endif
+
 typedef struct directory_type
 {
 HANDLE handle;
