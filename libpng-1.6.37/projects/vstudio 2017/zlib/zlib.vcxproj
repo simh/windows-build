@@ -13,8 +13,9 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{E1144796-E371-4607-942A-94506695882D}</ProjectGuid>
     <RootNamespace>zlib</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
+  <Import Project="$(SolutionDir)\zlib.props" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Library|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
@@ -59,31 +60,58 @@
       </ProgramDataBaseFileName>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <CompileAs>CompileAsC</CompileAs>
     </ClCompile>
+    <PreBuildEvent>
+      <Message>
+      </Message>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+      <Command>
+      </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Library|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;Z_SOLO;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MinimalRebuild>true</MinimalRebuild>
+      <MinimalRebuild>false</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <ProgramDataBaseFileName>$(OutDir)$(ProjectName).pdb</ProgramDataBaseFileName>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
     </ClCompile>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+      <Message>
+      </Message>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+      <Command>
+      </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\zlib-1.2.11\adler32.c" />
-    <ClCompile Include="..\..\..\..\zlib-1.2.11\compress.c" />
-    <ClCompile Include="..\..\..\..\zlib-1.2.11\crc32.c" />
-    <ClCompile Include="..\..\..\..\zlib-1.2.11\deflate.c" />
-    <ClCompile Include="..\..\..\..\zlib-1.2.11\infback.c" />
-    <ClCompile Include="..\..\..\..\zlib-1.2.11\inffast.c" />
-    <ClCompile Include="..\..\..\..\zlib-1.2.11\inflate.c" />
-    <ClCompile Include="..\..\..\..\zlib-1.2.11\inftrees.c" />
-    <ClCompile Include="..\..\..\..\zlib-1.2.11\trees.c" />
-    <ClCompile Include="..\..\..\..\zlib-1.2.11\zutil.c" />
+    <ClCompile Include="$(ZLibSrcDir)\adler32.c" />
+    <ClCompile Include="$(ZLibSrcDir)\compress.c" />
+    <ClCompile Include="$(ZLibSrcDir)\crc32.c" />
+    <ClCompile Include="$(ZLibSrcDir)\deflate.c" />
+    <ClCompile Include="$(ZLibSrcDir)\infback.c" />
+    <ClCompile Include="$(ZLibSrcDir)\inffast.c" />
+    <ClCompile Include="$(ZLibSrcDir)\inflate.c" />
+    <ClCompile Include="$(ZLibSrcDir)\inftrees.c" />
+    <ClCompile Include="$(ZLibSrcDir)\trees.c" />
+    <ClCompile Include="$(ZLibSrcDir)\zutil.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

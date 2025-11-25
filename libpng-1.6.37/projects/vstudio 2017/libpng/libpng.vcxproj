@@ -13,7 +13,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{6ADBEF0D-D0EE-4044-AB08-C6C96D72F512}</ProjectGuid>
     <RootNamespace>libpng</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Library|Win32'" Label="Configuration">
@@ -64,10 +64,38 @@
       </ProgramDataBaseFileName>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <CompileAs>CompileAsC</CompileAs>
     </ClCompile>
     <Lib>
       <OutputFile>$(OutDir)$(ProjectName)16.lib</OutputFile>
     </Lib>
+    <PostBuildEvent>
+      <Message>Copying zlib library and include files</Message>
+      <Command>echo copy "$(OutDir)\$(TargetName).lib" ..\..\..\..\lib\lib-VC2017\Release\
+copy "$(OutDir)\$(TargetName).lib" ..\..\..\..\lib\lib-VC2017\Release\
+if exist "$(OutDir)\$(TargetName).pdb" echo copy "$(OutDir)\$(TargetName).pdb" ..\..\..\..\lib\lib-VC2017\Release\
+if exist "$(OutDir)\$(TargetName).pdb" copy "$(OutDir)\$(TargetName).pdb" ..\..\..\..\lib\lib-VC2017\Release\
+echo copy "$(OutDir)\$(TargetName).lib" ..\..\..\..\lib\lib-VC2019\Release\
+copy "$(OutDir)\$(TargetName).lib" ..\..\..\..\lib\lib-VC2019\Release\
+if exist "$(OutDir)\$(TargetName).pdb" echo copy "$(OutDir)\$(TargetName).pdb" ..\..\..\..\lib\lib-VC2019\Release\
+if exist "$(OutDir)\$(TargetName).pdb" copy "$(OutDir)\$(TargetName).pdb" ..\..\..\..\lib\lib-VC2019\Release\
+echo copy "$(OutDir)\$(TargetName).lib" ..\..\..\..\lib\lib-VC2022\Release\
+copy "$(OutDir)\$(TargetName).lib" ..\..\..\..\lib\lib-VC2022\Release\
+if exist "$(OutDir)\$(TargetName).pdb" echo copy "$(OutDir)\$(TargetName).pdb" ..\..\..\..\lib\lib-VC2022\Release\
+if exist "$(OutDir)\$(TargetName).pdb" copy "$(OutDir)\$(TargetName).pdb" ..\..\..\..\lib\lib-VC2022\Release\
+echo copy "$(OutDir)\$(TargetName).lib" ..\..\..\..\lib\lib-VC2026\Release\
+copy "$(OutDir)\$(TargetName).lib" ..\..\..\..\lib\lib-VC2026\Release\
+if exist "$(OutDir)\$(TargetName).pdb" echo copy "$(OutDir)\$(TargetName).pdb" ..\..\..\..\lib\lib-VC2026\Release\
+if exist "$(OutDir)\$(TargetName).pdb" copy "$(OutDir)\$(TargetName).pdb" ..\..\..\..\lib\lib-VC2026\Release\
+echo copy "..\..\..\png.h" ..\..\..\..\include\
+copy "..\..\..\png.h" ..\..\..\..\include\
+echo copy "..\..\..\pngconf.h" ..\..\..\..\include\
+copy "..\..\..\pngconf.h" ..\..\..\..\include\
+echo copy "..\..\..\pnglibconf.h" ..\..\..\..\include\
+copy "..\..\..\pnglibconf.h" ..\..\..\..\include\
+</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Library|Win32'">
     <ClCompile>
@@ -80,10 +108,37 @@
       <ProgramDataBaseFileName>$(OutDir)$(ProjectName)16.pdb</ProgramDataBaseFileName>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
     </ClCompile>
     <Lib>
       <OutputFile>$(OutDir)$(ProjectName)16.lib</OutputFile>
     </Lib>
+    <PostBuildEvent>
+      <Message>Copying zlib library and include files</Message>
+      <Command>echo copy "$(OutDir)\$(TargetName).lib" ..\..\..\..\lib\lib-VC2017\Debug\
+copy "$(OutDir)\$(TargetName).lib" ..\..\..\..\lib\lib-VC2017\Debug\
+if exist "$(OutDir)\$(TargetName).pdb" echo copy "$(OutDir)\$(TargetName).pdb" ..\..\..\..\lib\lib-VC2017\Debug\
+if exist "$(OutDir)\$(TargetName).pdb" copy "$(OutDir)\$(TargetName).pdb" ..\..\..\..\lib\lib-VC2017\Debug\
+echo copy "$(OutDir)\$(TargetName).lib" ..\..\..\..\lib\lib-VC2019\Debug\
+copy "$(OutDir)\$(TargetName).lib" ..\..\..\..\lib\lib-VC2019\Debug\
+if exist "$(OutDir)\$(TargetName).pdb" echo copy "$(OutDir)\$(TargetName).pdb" ..\..\..\..\lib\lib-VC2019\Debug\
+if exist "$(OutDir)\$(TargetName).pdb" copy "$(OutDir)\$(TargetName).pdb" ..\..\..\..\lib\lib-VC2019\Debug\
+echo copy "$(OutDir)\$(TargetName).lib" ..\..\..\..\lib\lib-VC2022\Debug\
+copy "$(OutDir)\$(TargetName).lib" ..\..\..\..\lib\lib-VC2022\Debug\
+if exist "$(OutDir)\$(TargetName).pdb" echo copy "$(OutDir)\$(TargetName).pdb" ..\..\..\..\lib\lib-VC2022\Debug\
+if exist "$(OutDir)\$(TargetName).pdb" copy "$(OutDir)\$(TargetName).pdb" ..\..\..\..\lib\lib-VC2022\Debug\
+echo copy "$(OutDir)\$(TargetName).lib" ..\..\..\..\lib\lib-VC2026\Debug\
+copy "$(OutDir)\$(TargetName).lib" ..\..\..\..\lib\lib-VC2026\Debug\
+if exist "$(OutDir)\$(TargetName).pdb" echo copy "$(OutDir)\$(TargetName).pdb" ..\..\..\..\lib\lib-VC2026\Debug\
+if exist "$(OutDir)\$(TargetName).pdb" copy "$(OutDir)\$(TargetName).pdb" ..\..\..\..\lib\lib-VC2026\Debug\
+echo copy "..\..\..\png.h" ..\..\..\..\include\
+copy "..\..\..\png.h" ..\..\..\..\include\
+echo copy "..\..\..\pngconf.h" ..\..\..\..\include\
+copy "..\..\..\pngconf.h" ..\..\..\..\include\
+echo copy "..\..\..\pnglibconf.h" ..\..\..\..\include\
+copy "..\..\..\pnglibconf.h" ..\..\..\..\include\
+</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\png.c" />

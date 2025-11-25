@@ -22,7 +22,7 @@
     <ProjectName>SDL2-Static</ProjectName>
     <ProjectGuid>{81CE8DAF-EBB2-4761-8E45-B71ABCCA8C68}</ProjectGuid>
     <RootNamespace>SDL</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -121,7 +121,8 @@ if exist "$(OutDir)$(TargetName).pdb" del "$(OutDir)$(TargetName).pdb"
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <CompileAs>Default</CompileAs>
+      <CompileAs>CompileAsC</CompileAs>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -133,9 +134,16 @@ if exist "$(OutDir)$(TargetName).pdb" del "$(OutDir)$(TargetName).pdb"
     <PostBuildEvent>
       <Command>copy /y "$(OutDir)\*.lib" ..\..\..\..\lib\lib-VC2017\$(ConfigurationName)\
 if exist "$(OutDir)\*.pdb" copy /y "$(OutDir)\*.pdb" ..\..\..\..\lib\lib-VC2017\$(ConfigurationName)\
+copy /y "$(OutDir)\*.lib" ..\..\..\..\lib\lib-VC2019\$(ConfigurationName)\
+if exist "$(OutDir)\*.pdb" copy /y "$(OutDir)\*.pdb" ..\..\..\..\lib\lib-VC2019\$(ConfigurationName)\
+copy /y "$(OutDir)\*.lib" ..\..\..\..\lib\lib-VC2022\$(ConfigurationName)\
+if exist "$(OutDir)\*.pdb" copy /y "$(OutDir)\*.pdb" ..\..\..\..\lib\lib-VC2022\$(ConfigurationName)\
+copy /y "$(OutDir)\*.lib" ..\..\..\..\lib\lib-VC2026\$(ConfigurationName)\
+if exist "$(OutDir)\*.pdb" copy /y "$(OutDir)\*.pdb" ..\..\..\..\lib\lib-VC2026\$(ConfigurationName)\
 if not exist ..\..\..\..\include\SDL2 mkdir ..\..\..\..\include\SDL2
 copy /y ..\..\include\* ..\..\..\..\include\SDL2\ &gt; NUL
 </Command>
+      <Message>Deploying $(ProjectName) $(Configuration) library and include components</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -160,11 +168,11 @@ if exist "$(OutDir)$(TargetName).pdb" del "$(OutDir)$(TargetName).pdb"
       <ExceptionHandling />
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <BufferSecurityCheck>false</BufferSecurityCheck>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>None</DebugInformationFormat>
-      <CompileAs>Default</CompileAs>
+      <CompileAs>CompileAsC</CompileAs>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -173,9 +181,16 @@ if exist "$(OutDir)$(TargetName).pdb" del "$(OutDir)$(TargetName).pdb"
     <PostBuildEvent>
       <Command>copy /y "$(OutDir)\*.lib" ..\..\..\..\lib\lib-VC2017\$(ConfigurationName)\
 if exist "$(OutDir)\*.pdb" copy /y "$(OutDir)\*.pdb" ..\..\..\..\lib\lib-VC2017\$(ConfigurationName)\
+copy /y "$(OutDir)\*.lib" ..\..\..\..\lib\lib-VC2019\$(ConfigurationName)\
+if exist "$(OutDir)\*.pdb" copy /y "$(OutDir)\*.pdb" ..\..\..\..\lib\lib-VC2019\$(ConfigurationName)\
+copy /y "$(OutDir)\*.lib" ..\..\..\..\lib\lib-VC2022\$(ConfigurationName)\
+if exist "$(OutDir)\*.pdb" copy /y "$(OutDir)\*.pdb" ..\..\..\..\lib\lib-VC2022\$(ConfigurationName)\
+copy /y "$(OutDir)\*.lib" ..\..\..\..\lib\lib-VC2026\$(ConfigurationName)\
+if exist "$(OutDir)\*.pdb" copy /y "$(OutDir)\*.pdb" ..\..\..\..\lib\lib-VC2026\$(ConfigurationName)\
 if not exist ..\..\..\..\include\SDL2 mkdir ..\..\..\..\include\SDL2
 copy /y ..\..\include\* ..\..\..\..\include\SDL2\ &gt; NUL
 </Command>
+      <Message>Deploying $(ProjectName) $(Configuration) library and include components</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

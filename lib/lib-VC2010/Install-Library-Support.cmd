@@ -1,5 +1,5 @@
 @echo off
-: Tbis procedure installs tbe required object libraries to build using 
+: Tbis procedure installs the required object libraries to build using 
 : Visual Studio 2010
 : Note: Most object libraries are completely compatible from 
 :       Visual Studio 2008, so those are referenced directly with 

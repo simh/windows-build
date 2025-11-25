@@ -61,7 +61,7 @@
 				SuppressStartupBanner="true"
 				Detect64BitPortabilityProblems="false"
 				DebugInformationFormat="3"
-				CompileAs="0"
+				CompileAs="1"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -135,12 +135,12 @@
 				ExceptionHandling="0"
 				RuntimeLibrary="0"
 				BufferSecurityCheck="false"
-				EnableFunctionLevelLinking="true"
+				EnableFunctionLevelLinking="false"
 				WarningLevel="3"
 				SuppressStartupBanner="true"
 				Detect64BitPortabilityProblems="false"
 				DebugInformationFormat="0"
-				CompileAs="0"
+				CompileAs="1"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"

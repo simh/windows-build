@@ -14,7 +14,7 @@
     <ProjectGuid>{7121DF6A-C0A3-4648-8410-F5F9749E50D6}</ProjectGuid>
     <RootNamespace>wineditline</RootNamespace>
     <Keyword>Win32Proj</Keyword>
-    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -67,14 +67,21 @@
       <ProgramDataBaseFileName>$(OutDir)$(TargetName)d.pdb</ProgramDataBaseFileName>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
     </ClCompile>
     <Lib>
       <OutputFile>$(OutDir)$(ProjectName)d.lib</OutputFile>
     </Lib>
     <PostBuildEvent>
       <Message>Deploying $(ProjectName) library and include components</Message>
-      <Command>copy /y "$(TargetDir)$(TargetName)d.lib" "..\..\..\lib\lib-VC2017\$(Configuration)\" &gt;NUL
+      <Command>copy /y "$(TargetDir)$(TargetName)*.lib" "..\..\..\lib\lib-VC2017\$(Configuration)\" &gt;NUL
 if exist "$(TargetDir)$(TargetName)d.pdb" copy /y "$(TargetDir)$(TargetName)d.pdb" "..\..\..\lib\lib-VC2017\$(Configuration)\" &gt;NUL
+copy /y "$(TargetDir)$(TargetName)*.lib" "..\..\..\lib\lib-VC2019\$(Configuration)\" &gt;NUL
+if exist "$(TargetDir)$(TargetName)d.pdb" copy /y "$(TargetDir)$(TargetName)d.pdb" "..\..\..\lib\lib-VC2019\$(Configuration)\" &gt;NUL
+copy /y "$(TargetDir)$(TargetName)*.lib" "..\..\..\lib\lib-VC2022\$(Configuration)\" &gt;NUL
+if exist "$(TargetDir)$(TargetName)d.pdb" copy /y "$(TargetDir)$(TargetName)d.pdb" "..\..\..\lib\lib-VC2022\$(Configuration)\" &gt;NUL
+copy /y "$(TargetDir)$(TargetName)*.lib" "..\..\..\lib\lib-VC2026\$(Configuration)\" &gt;NUL
+if exist "$(TargetDir)$(TargetName)d.pdb" copy /y "$(TargetDir)$(TargetName)d.pdb" "..\..\..\lib\lib-VC2026\$(Configuration)\" &gt;NUL
 copy /y "..\..\src\editline\*.h" "..\..\..\include\editline\" &gt;NUL
 </Command>
     </PostBuildEvent>
@@ -91,11 +98,19 @@ copy /y "..\..\src\editline\*.h" "..\..\..\include\editline\" &gt;NUL
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ProgramDataBaseFileName />
+      <CompileAs>CompileAsC</CompileAs>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
     </ClCompile>
     <PostBuildEvent>
       <Message>Deploying $(ProjectName) library and include components</Message>
-      <Command>copy /y "$(TargetPath)" "..\..\..\lib\lib-VC2017\$(Configuration)\" &gt;NUL
-if exist "$(TargetDir)$(TargetName).pdb" copy /y "$(TargetDir)$(TargetName).pdb" "..\..\..\lib\lib-VC2017\$(Configuration)\" &gt;NUL
+      <Command>copy /y "$(TargetDir)$(TargetName)*.lib" "..\..\..\lib\lib-VC2017\$(Configuration)\" &gt;NUL
+if exist "$(TargetDir)$(TargetName)d.pdb" copy /y "$(TargetDir)$(TargetName)d.pdb" "..\..\..\lib\lib-VC2017\$(Configuration)\" &gt;NUL
+copy /y "$(TargetDir)$(TargetName)*.lib" "..\..\..\lib\lib-VC2019\$(Configuration)\" &gt;NUL
+if exist "$(TargetDir)$(TargetName)d.pdb" copy /y "$(TargetDir)$(TargetName)d.pdb" "..\..\..\lib\lib-VC2019\$(Configuration)\" &gt;NUL
+copy /y "$(TargetDir)$(TargetName)*.lib" "..\..\..\lib\lib-VC2022\$(Configuration)\" &gt;NUL
+if exist "$(TargetDir)$(TargetName)d.pdb" copy /y "$(TargetDir)$(TargetName)d.pdb" "..\..\..\lib\lib-VC2022\$(Configuration)\" &gt;NUL
+copy /y "$(TargetDir)$(TargetName)*.lib" "..\..\..\lib\lib-VC2026\$(Configuration)\" &gt;NUL
+if exist "$(TargetDir)$(TargetName)d.pdb" copy /y "$(TargetDir)$(TargetName)d.pdb" "..\..\..\lib\lib-VC2026\$(Configuration)\" &gt;NUL
 copy /y "..\..\src\editline\*.h" "..\..\..\include\editline\" &gt;NUL
 </Command>
     </PostBuildEvent>
